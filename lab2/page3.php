@@ -1,85 +1,135 @@
 <?php
-    $title = "Contact Me | Student Portfolio";
+    $title = "Student Portfolio";
     $header = "Contact Me";
 ?>
 <html>
     <head>
-        <title><?php echo $title; ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?php echo $title; ?></title>
         <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
             body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                min-height: 100vh;
-                padding: 20px;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #f3f6fb;
+                color: #1f2937;
             }
+
             nav {
-                background-color: rgba(255, 255, 255, 0.95);
-                padding: 15px 0;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                background: #111827;
+                padding: 18px 24px;
                 display: flex;
                 justify-content: center;
-                gap: 30px;
-                margin-bottom: 40px;
+                gap: 18px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            }
+
+            nav a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 600;
+                padding: 10px 16px;
+                border-radius: 999px;
+                transition: 0.2s ease;
+            }
+
+            nav a:hover {
+                background: #374151;
+            }
+
+            .container {
+                max-width: 960px;
+                margin: 40px auto;
+                background: #ffffff;
+                border: 1px solid #e5e7eb;
+                border-radius: 18px;
+                box-shadow: 0 14px 30px rgba(17, 24, 39, 0.08);
+                padding: 30px;
+            }
+
+            .content {
+                display: flex;
+                align-items: center;
+                gap: 28px;
                 flex-wrap: wrap;
             }
-            nav a {
-                text-decoration: none;
-                color: #667eea;
-                font-weight: 600;
-                font-size: 16px;
-                transition: all 0.3s ease;
-                padding: 8px 15px;
-            }
-            nav a:hover {
-                color: #764ba2;
-                border-bottom: 3px solid #667eea;
-            }
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-                background-color: white;
-                padding: 40px;
-                border-radius: 15px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            }
-            <h1><?php echo $header; ?></h1>
-            <img src="contact.jpg" alt="Contact Me">
-            <p>
-                Feel free to reach out to me if you'd like to collaborate, ask about my
-                projects, or just say hello. You can email me at
-                juandelacruz.cs@example.com, connect with me on LinkedIn, or check out my
-                code on GitHub. I'm always open to new opportunities, internships, and
-                interesting conversations about technology and software development.
-            </p>
-        </div>
-        <style>
+
             h1 {
-                color: #333;
-                margin-bottom: 30px;
-                font-size: 28px;
+                margin: 0 0 20px;
+                font-size: 2.2rem;
+                color: #111827;
             }
+
             img {
-                width: 100%;
-                max-width: 500px;
-                height: auto;
-                border-radius: 10px;
-                margin: 20px 0;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                max-width: 100%;
+                border-radius: 16px;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
             }
+
             p {
-                color: #555;
+                margin: 0;
                 line-height: 1.8;
-                font-size: 16px;
-                text-align: justify;
+                font-size: 1.05rem;
+                color: #4b5563;
+            }
+
+            .contact-box {
+                margin-top: 20px;
+                background: #f9fafb;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                padding: 18px 20px;
+                color: #374151;
+                line-height: 1.8;
+            }
+
+            @media (max-width: 700px) {
+                nav {
+                    flex-wrap: wrap;
+                }
+
+                .container {
+                    margin: 24px 16px;
+                    padding: 22px 18px;
+                }
+
+                .content {
+                    display: block;
+                }
+
+                img {
+                    width: 100%;
+                    margin-bottom: 18px;
+                }
             }
         </style>
+    </head>
+    <body>
+        <nav>
+            <a href="page1.php">Projects</a>
+            <a href="page2.php">About Me</a>
+            <a href="page3.php">Contact</a>
+        </nav>
+        <div class="container">
+            <h1><?php echo $header; ?></h1>
+            <div class="content">
+                <img src="contact.jpg" alt="Contact Me">
+                <div>
+                    <p>
+                        Feel free to reach out to me if you'd like to collaborate, ask about my
+                        projects, or just say hello. You can email me at
+                        estrellaspopee@gmail.com, connect with me on LinkedIn, or check out my
+                        code on GitHub. I'm always open to new opportunities, internships, and
+                        interesting conversations about technology and software development.
+                    </p>
+                    <div class="contact-box">
+                        <strong>Email:</strong> estrellaspopee@gmail.com<br>
+                        <strong>LinkedIn:</strong> /in/karolbarol<br>
+                        <strong>GitHub:</strong> github.com/barolcoding
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
