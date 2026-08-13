@@ -16,12 +16,12 @@
             }
 
             nav {
-                background: #111827;
+                background: #000000;
                 padding: 18px 24px;
                 display: flex;
                 justify-content: center;
                 gap: 18px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                
             }
 
             nav a {
@@ -61,10 +61,12 @@
             }
 
             img {
-                width: 320px;
+                width: 400px;
+                height: 300px;
                 max-width: 100%;
                 border-radius: 16px;
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+                display: block; margin: 0 auto;
             }
 
             p {
@@ -105,6 +107,7 @@
             <h1><?php echo $header; ?></h1>
             <div class="content">
                 <img src="3d.png" alt="My Projects">
+                <img src="3d2.png" alt="My Projects">
                 <p>
                     As a Computer Science student, I have worked on a variety of projects that
                     helped me sharpen my skills in programming, 3d modeling, web development, and problem solving.

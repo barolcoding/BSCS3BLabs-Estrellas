@@ -16,12 +16,12 @@
             }
 
             nav {
-                background: #111827;
+                background: #000000;
                 padding: 18px 24px;
                 display: flex;
                 justify-content: center;
                 gap: 18px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                
             }
 
             nav a {
@@ -34,7 +34,7 @@
             }
 
             nav a:hover {
-                background: #374151;
+                background: #323842;
             }
 
             .container {
@@ -65,6 +65,8 @@
                 max-width: 100%;
                 border-radius: 16px;
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+                display: block; margin: 0 auto;
+                
             }
 
             p {
@@ -76,7 +78,7 @@
 
             .contact-box {
                 margin-top: 20px;
-                background: #f9fafb;
+                background: #ebeced;
                 border: 1px solid #e5e7eb;
                 border-radius: 12px;
                 padding: 18px 20px;
