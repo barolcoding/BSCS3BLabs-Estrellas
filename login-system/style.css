@@ -1,0 +1,75 @@
+:root {
+    --ink: #212529;
+    --muted: #6c757d;
+    --line: #dee2e6;
+    --bs-primary: #343a40;
+    --bs-primary-rgb: 52, 58, 64;
+    --bs-link-color: #343a40;
+    --bs-link-hover-color: #000;
+}
+
+html { filter: grayscale(1); }
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #f1f1f1;
+    color: var(--ink);
+}
+
+.btn-primary,
+.btn-brand {
+    --bs-btn-bg: #343a40;
+    --bs-btn-border-color: #343a40;
+    --bs-btn-hover-bg: #000;
+    --bs-btn-hover-border-color: #000;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    background: #343a40;
+    border-color: #343a40;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-brand:hover { background: #000; border-color: #000; color: #fff; }
+
+/* Navigation */
+#main-nav { background: #212529; }
+#main-nav .nav-link { color: #adb5bd; border-radius: .4rem; padding: .4rem .9rem; }
+#main-nav .nav-link:hover { color: #fff; }
+#main-nav .nav-link.active { background: #495057; color: #fff; }
+
+/* Login and register */
+.auth-brand {
+    background: #212529;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.brand-logo {
+    width: 56px;
+    height: 56px;
+    border: 2px solid #fff;
+    border-radius: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.brand-points li { margin-bottom: .6rem; opacity: .85; }
+#login-card { max-width: 400px; width: 100%; }
+#brand-label { color: var(--ink) !important; letter-spacing: .1em; }
+#login-card .input-group-text { background: #fff; color: var(--muted); }
+
+/* Panels, tables, game */
+.page-title { font-weight: 700; }
+.panel-card, .table-card { background: #fff; border: 1px solid var(--line); border-radius: .5rem; box-shadow: none; overflow: hidden; }
+.stat-number { font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: #495057; color: #fff; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
+
+#game-wrap { background: #111; border-radius: .5rem; padding: .75rem; }
+#game-canvas { display: block; width: 100%; max-width: 480px; margin: 0 auto; background: #000; border: 1px solid #444; touch-action: none; }
+#hp-track { height: 10px; background: #dee2e6; border-radius: 5px; overflow: hidden; }
+#hp-bar { height: 100%; width: 100%; background: #212529; transition: width .1s; }

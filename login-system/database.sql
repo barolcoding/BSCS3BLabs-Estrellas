@@ -1,0 +1,52 @@
+
+
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(10) NOT NULL DEFAULT 'user' CHECK (role IN ('admin','user')),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS player_stats (
+    user_id INT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+    coins INT NOT NULL DEFAULT 0,
+    hp_level INT NOT NULL DEFAULT 0,
+    speed_level INT NOT NULL DEFAULT 0,
+    fire_level INT NOT NULL DEFAULT 0,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+ALTER TABLE player_stats ADD COLUMN IF NOT EXISTS high_score INT NOT NULL DEFAULT 0;
+
+CREATE TABLE IF NOT EXISTS game_logs (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    score INT NOT NULL DEFAULT 0,
+    coins_earned INT NOT NULL DEFAULT 0,
+    played_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS achievements (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    code VARCHAR(30) NOT NULL,
+    unlocked_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (user_id, code)
+);
+
+CREATE TABLE IF NOT EXISTS login_sessions (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    logged_in_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ip_address VARCHAR(45),
+    user_agent VARCHAR(200)
+);
+
+-- Keep high scores in step with any existing run history.
+UPDATE player_stats s SET high_score = GREATEST(s.high_score, COALESCE((SELECT MAX(score) FROM game_logs g WHERE g.user_id = s.user_id), 0));
+
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+ALTER TABLE player_stats ENABLE ROW LEVEL SECURITY;
+ALTER TABLE game_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE achievements ENABLE ROW LEVEL SECURITY;
+ALTER TABLE login_sessions ENABLE ROW LEVEL SECURITY;
